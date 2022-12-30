@@ -1,3 +1,13 @@
+@font-face {
+    src: url('../Fonts/Extatica-SemiBold.otf'),
+         url('../Fonts/Extatica-Regular.otf');
+}
+
+/* Container */
+.main_container {
+    -fx-font-family: Extatica-Regular;
+}
+
 /* Sidebar */
 .sidebar {
     -fx-background-image: url("../Images/login_banner.png");
@@ -7,7 +17,7 @@
 }
 
 .sidebar Text {
-    -fx-font-weight: bold;
+    -fx-font-family: Extatica-SemiBold;
     -fx-font-size: 3em;
 }
 
