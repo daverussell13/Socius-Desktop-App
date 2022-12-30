@@ -5,4 +5,5 @@ module com.socius {
 
     opens com.socius to javafx.fxml;
     exports com.socius;
+    exports com.socius.Controllers;
 }

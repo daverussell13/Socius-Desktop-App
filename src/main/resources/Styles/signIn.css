@@ -1,0 +1,75 @@
+/* Sidebar */
+.sidebar {
+    -fx-background-image: url("../Images/login_banner.png");
+    -fx-background-size: cover;
+    -fx-alignment: top_center;
+    -fx-padding: 30 0 0 0;
+}
+
+.sidebar Text {
+    -fx-font-weight: bold;
+    -fx-font-size: 3em;
+}
+
+/* Content */
+.main_content {
+    -fx-background-color: #FFF;
+}
+
+.content_wrapper {
+    -fx-alignment: center;
+    -fx-padding: 0 0 35 0;
+}
+
+/* Login Menu */
+.login_menu_container {
+    -fx-max-width: 350;
+    -fx-spacing: 18;
+}
+
+.login_menu_container Label {
+    -fx-font-size: 1.1em;
+}
+
+.login_title {
+    -fx-font-size: 3em;
+}
+
+/* Login Input field */
+.login_input_container {
+    -fx-spacing: 6;
+}
+
+.login_input_field {
+    -fx-pref-height: 45;
+    -fx-padding: 0 15;
+    -fx-background-color: #DDBB92;
+    -fx-background-radius: 15;
+}
+
+/* Sign Up Hyperlink */
+.sign_in_hyperlink {
+    -fx-border-color: transparent;
+    -fx-underline: false;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000;
+    -fx-cursor: hand;
+}
+
+/* Login Button */
+.login_button {
+    -fx-pref-height: 45;
+    -fx-pref-width: 180;
+    -fx-background-color: #DDBB92;
+    -fx-background-radius: 24;
+}
+
+.login_button:hover {
+    -fx-cursor: hand;
+}
+
+.login_button .text {
+    -fx-fill: #FFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.5em;
+}
