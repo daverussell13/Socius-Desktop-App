@@ -13,49 +13,58 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="854.0" styleClass="main_container" stylesheets="@../../Styles/Pages/signUp.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socius.Controllers.SignInController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0"
+            prefWidth="854.0" styleClass="main_container" stylesheets="@../../Styles/Pages/signUp.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.socius.Controllers.SignUpController">
     <left>
         <AnchorPane prefHeight="480.0" prefWidth="270.0" BorderPane.alignment="CENTER">
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Socius" />
+            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Socius"/>
             </VBox>
         </AnchorPane>
     </left>
     <center>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="main_content" BorderPane.alignment="CENTER">
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="content_wrapper" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="content_wrapper" AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                 <VBox prefWidth="400.0" styleClass="register_menu_container">
                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="register_title" text="Sign Up">
-                  <VBox.margin>
-                     <Insets bottom="10.0" />
-                  </VBox.margin></Text>
+                        <VBox.margin>
+                            <Insets bottom="10.0"/>
+                        </VBox.margin>
+                    </Text>
                     <HBox styleClass="name_username_input_field_container">
                         <VBox styleClass="input_container" HBox.hgrow="ALWAYS">
-                            <Label text="Name" />
-                            <TextField fx:id="name_field" styleClass="register_input_field" />
+                            <Label text="Name"/>
+                            <TextField fx:id="name_field" styleClass="register_input_field"/>
                         </VBox>
                         <VBox styleClass="input_container" HBox.hgrow="ALWAYS">
-                            <Label text="Username" />
-                            <TextField fx:id="username_field" styleClass="register_input_field" />
+                            <Label text="Username"/>
+                            <TextField fx:id="username_field" styleClass="register_input_field"/>
                         </VBox>
                     </HBox>
                     <VBox prefWidth="0.0" styleClass="input_container">
-                        <Label text="Email" />
-                        <TextField fx:id="email_field" styleClass="register_input_field" />
+                        <Label text="Email"/>
+                        <TextField fx:id="email_field" styleClass="register_input_field"/>
                     </VBox>
                     <VBox styleClass="input_container">
-                        <Label text="Password" />
-                        <PasswordField fx:id="password_field" styleClass="register_input_field" />
+                        <Label text="Password"/>
+                        <PasswordField fx:id="password_field" styleClass="register_input_field"/>
                     </VBox>
-               <CheckBox fx:id="agreement_checkbox" mnemonicParsing="false" text="Creating an account means you’re okay with our Terms of Service, Privacy Policy, and our default Notification Settings." wrapText="true">
-                  <VBox.margin>
-                     <Insets />
-                  </VBox.margin></CheckBox>
+                    <CheckBox fx:id="agreement_checkbox" mnemonicParsing="false"
+                              text="Creating an account means you’re okay with our Terms of Service, Privacy Policy, and our default Notification Settings."
+                              wrapText="true">
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+                    </CheckBox>
                     <HBox alignment="CENTER_LEFT">
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
-                        <Hyperlink prefHeight="0.0" styleClass="sign_in_hyperlink" text="Sign In here" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?"/>
+                        <Hyperlink prefHeight="0.0" styleClass="sign_in_hyperlink" text="Sign In here"/>
                     </HBox>
-                    <Button fx:id="signUp_btn" mnemonicParsing="false" styleClass="register_button" text="Sign Up" />
+                    <Button fx:id="signUp_btn" mnemonicParsing="false" styleClass="register_button" text="Sign Up"/>
                 </VBox>
             </VBox>
         </AnchorPane>
