@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="854.0" styleClass="main_container" stylesheets="@../Styles/signIn.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socius.Controllers.SignInController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="854.0" styleClass="main_container" stylesheets="@../../Styles/Pages/signIn.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socius.Controllers.SignInController">
     <left>
         <AnchorPane prefHeight="480.0" prefWidth="270.0" BorderPane.alignment="CENTER">
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -28,17 +28,17 @@
                   <VBox.margin>
                      <Insets bottom="10.0" />
                   </VBox.margin></Text>
-                    <VBox prefWidth="0.0" styleClass="login_input_container">
+                    <VBox prefWidth="0.0" styleClass="input_container">
                         <Label text="Username or Email Address" />
                         <TextField fx:id="username_field" styleClass="login_input_field" />
                     </VBox>
-                    <VBox styleClass="login_input_container">
+                    <VBox styleClass="input_container">
                         <Label text="Password" />
                         <PasswordField fx:id="password_field" styleClass="login_input_field" />
                     </VBox>
                     <HBox alignment="CENTER_LEFT">
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have account?" />
-                        <Hyperlink prefHeight="0.0" styleClass="sign_in_hyperlink" text="Sign Up here" />
+                        <Hyperlink prefHeight="0.0" styleClass="sign_up_hyperlink" text="Sign Up here" />
                     </HBox>
                     <Button fx:id="signIn_btn" mnemonicParsing="false" styleClass="login_button" text="Sign In" />
                 </VBox>

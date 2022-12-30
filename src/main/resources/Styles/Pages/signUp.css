@@ -1,6 +1,6 @@
 @font-face {
-    src: url('../Fonts/Extatica-SemiBold.otf'),
-         url('../Fonts/Extatica-Regular.otf');
+    src: url('../../Fonts/Extatica-SemiBold.otf'),
+    url('../../Fonts/Extatica-Regular.otf');
 }
 
 /* Container */
@@ -10,7 +10,7 @@
 
 /* Sidebar */
 .sidebar {
-    -fx-background-image: url("../Images/login_banner.png");
+    -fx-background-image: url("../../Images/login_banner.png");
     -fx-background-size: cover;
     -fx-alignment: top_center;
     -fx-padding: 30 0 0 0;
@@ -28,36 +28,39 @@
 
 .content_wrapper {
     -fx-alignment: center;
-    -fx-padding: 0 0 35 0;
 }
 
-/* Login Menu */
-.login_menu_container {
-    -fx-max-width: 350;
-    -fx-spacing: 18;
+.input_container {
+    -fx-spacing: 4;
 }
 
-.login_menu_container Label {
-    -fx-font-size: 1.1em;
+/* Register Menu */
+.register_menu_container {
+    -fx-max-width: 400;
+    -fx-spacing: 12;
 }
 
-.login_title {
+.register_title {
     -fx-font-size: 3em;
 }
 
-/* Login Input field */
-.login_input_container {
-    -fx-spacing: 6;
-}
-
-.login_input_field {
-    -fx-pref-height: 45;
+/* Register input field */
+.register_input_field {
+    -fx-pref-height: 35;
     -fx-padding: 0 15;
     -fx-background-color: #DDBB92;
-    -fx-background-radius: 15;
+    -fx-background-radius: 12;
 }
 
-/* Sign Up Hyperlink */
+.name_username_input_field_container {
+    -fx-spacing: 50;
+}
+
+.check-box {
+    -fx-label-padding: 0 0 0 20;
+}
+
+/* Sign In Hyperlink */
 .sign_in_hyperlink {
     -fx-border-color: transparent;
     -fx-underline: false;
@@ -67,19 +70,19 @@
 }
 
 /* Login Button */
-.login_button {
+.register_button {
     -fx-pref-height: 45;
     -fx-pref-width: 180;
     -fx-background-color: #DDBB92;
     -fx-background-radius: 24;
 }
 
-.login_button:hover {
+.register_button:hover {
     -fx-cursor: hand;
 }
 
-.login_button .text {
+.register_button .text {
+    -fx-font-family: Extatica-SemiBold;
     -fx-fill: #FFF;
-    -fx-font-weight: bold;
     -fx-font-size: 1.5em;
 }
