@@ -38,7 +38,7 @@
                     </VBox>
                     <HBox alignment="CENTER_LEFT">
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have account?" />
-                        <Hyperlink prefHeight="0.0" styleClass="sign_up_hyperlink" text="Sign Up here" />
+                        <Hyperlink fx:id="sign_up_hyperlink" prefHeight="0.0" styleClass="sign_up_hyperlink" text="Sign Up here" />
                     </HBox>
                     <Button fx:id="signIn_btn" mnemonicParsing="false" styleClass="login_button" text="Sign In" />
                 </VBox>
