@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1270.0"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
+   <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+         AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER">
+         <VBox prefHeight="200.0" prefWidth="100.0">
+            <FontAwesomeIconView/>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama"/>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email"/>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="No. Hp"/>
+         </VBox>
+         <VBox prefHeight="200.0" prefWidth="100.0">
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama"/>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":"/>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0"/>
+            <HBox prefHeight="100.0" prefWidth="200.0"/>
+         </VBox>
+      </HBox>
+   </VBox>
+</AnchorPane>

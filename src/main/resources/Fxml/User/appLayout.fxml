@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socius.Controllers.User.AppController">
+    <BorderPane fx:id="appContainer" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="1270.0">
+        <top>
+            <AnchorPane minWidth="-Infinity" prefHeight="60.0" prefWidth="1270.0" styleClass="header" stylesheets="@../../Styles/User/header.css">
+                <HBox alignment="CENTER_LEFT" layoutX="-18.0" layoutY="-26.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo" text="Socius" />
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" layoutX="353.0" layoutY="-26.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <padding>
+                        <Insets right="50.0" />
+                    </padding>
+                    <HBox alignment="CENTER" spacing="10.0">
+                        <FontAwesomeIconView glyphName="USER" size="20" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="username" text="Username" />
+                    </HBox>
+                </HBox>
+            </AnchorPane>
+        </top>
+        <center>
+            <fx:include source="./home.fxml" />
+        </center>
+    </BorderPane>
+</ScrollPane>

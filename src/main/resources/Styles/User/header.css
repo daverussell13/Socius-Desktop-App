@@ -1,0 +1,17 @@
+@font-face {
+    src: url('../../Fonts/Extatica-SemiBold.otf');
+}
+
+.header {
+    -fx-font-family: Extatica-SemiBold;
+}
+
+.logo {
+    -fx-font-size: 2em;
+    -fx-fill: #000;
+}
+
+.username {
+    -fx-font-size: 1.8em;
+    -fx-fill: #000;
+}

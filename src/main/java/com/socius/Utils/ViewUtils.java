@@ -4,6 +4,7 @@ import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -17,6 +18,17 @@ public class ViewUtils {
             err.printStackTrace();
         }
         return scene;
+    }
+
+    public static AnchorPane createAnchorPane(String fxmlPath) {
+       AnchorPane pane = null;
+       try {
+           FXMLLoader loader = new FXMLLoader(ViewUtils.class.getResource(fxmlPath));
+           pane = new AnchorPane(loader.load());
+       } catch (IOException err) {
+           err.printStackTrace();
+       }
+       return pane;
     }
 
     public static Stage getEventStage(Event event) {

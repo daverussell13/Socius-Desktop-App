@@ -27,10 +27,11 @@ public class SignUpController implements Initializable {
     private Button signUp_btn;
     @FXML
     private TextField username_field;
+    private final AuthView authView = AuthView.getInstance();
 
     EventHandler<ActionEvent> signInHyperHdl = actionEvent ->  {
         Stage stage = ViewUtils.getEventStage(actionEvent);
-        AuthView.setSignInScene(stage);
+        authView.setSignInScene(stage);
     };
 
     @Override
