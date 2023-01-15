@@ -1,8 +1,8 @@
-package com.socius.Controllers;
+package com.socius.Controllers.Auth;
 
 import com.socius.Utils.ViewUtils;
 import com.socius.Views.AuthView;
-import com.socius.Views.User.AppView;
+import com.socius.Views.UserView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,24 +18,22 @@ import java.util.ResourceBundle;
 
 public class SignInController implements Initializable {
     @FXML
-    public TextField username_field;
+    private TextField username_field;
     @FXML
-    public PasswordField password_field;
+    private PasswordField password_field;
     @FXML
-    public Button signIn_btn;
+    private Button signIn_btn;
     @FXML
-    public Hyperlink sign_up_hyperlink;
-    private final AuthView authView = AuthView.getInstance();
-    private final AppView userView = com.socius.Views.User.AppView.getInstance();
+    private Hyperlink sign_up_hyperlink;
 
     private final EventHandler<ActionEvent> signUpHyperHdl = actionEvent -> {
         Stage stage = ViewUtils.getEventStage(actionEvent);
-        authView.setSignUpScene(stage);
+        AuthView.setSignUpScene(stage);
     };
 
     private final EventHandler<ActionEvent> signInHdl = actionEvent -> {
         Stage stage = ViewUtils.getEventStage(actionEvent);
-        userView.setAppScene(stage);
+        UserView.setAppScene(stage);
     };
 
     @Override

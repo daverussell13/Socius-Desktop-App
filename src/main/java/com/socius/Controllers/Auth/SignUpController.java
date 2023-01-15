@@ -1,4 +1,4 @@
-package com.socius.Controllers;
+package com.socius.Controllers.Auth;
 
 import com.socius.Utils.ViewUtils;
 import com.socius.Views.AuthView;
@@ -27,11 +27,10 @@ public class SignUpController implements Initializable {
     private Button signUp_btn;
     @FXML
     private TextField username_field;
-    private final AuthView authView = AuthView.getInstance();
 
     EventHandler<ActionEvent> signInHyperHdl = actionEvent ->  {
         Stage stage = ViewUtils.getEventStage(actionEvent);
-        authView.setSignInScene(stage);
+        AuthView.setSignInScene(stage);
     };
 
     @Override

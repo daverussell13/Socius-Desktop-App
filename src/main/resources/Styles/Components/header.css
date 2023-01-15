@@ -6,9 +6,15 @@
     -fx-font-family: Extatica-SemiBold;
 }
 
+
 .logo {
     -fx-font-size: 2em;
     -fx-fill: #000;
+    -fx-cursor: hand;
+}
+
+.username_container {
+    -fx-cursor: hand;
 }
 
 .username {

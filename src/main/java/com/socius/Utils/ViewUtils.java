@@ -20,17 +20,6 @@ public class ViewUtils {
         return scene;
     }
 
-    public static AnchorPane createAnchorPane(String fxmlPath) {
-       AnchorPane pane = null;
-       try {
-           FXMLLoader loader = new FXMLLoader(ViewUtils.class.getResource(fxmlPath));
-           pane = new AnchorPane(loader.load());
-       } catch (IOException err) {
-           err.printStackTrace();
-       }
-       return pane;
-    }
-
     public static Stage getEventStage(Event event) {
         return (Stage) ((Node)event.getSource()).getScene().getWindow();
     }
