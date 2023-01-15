@@ -3,6 +3,7 @@ module com.socius {
     requires javafx.fxml;
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
+    requires io.github.cdimascio.dotenv.java;
 
     opens com.socius to javafx.fxml;
     exports com.socius;

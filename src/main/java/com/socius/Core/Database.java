@@ -1,15 +1,17 @@
 package com.socius.Core;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
-    private static final String host = "localhost";
-    private static final String database = "socius";
+    private static final Dotenv ENV = Dotenv.load();
+    private static final String host = ENV.get("DB_HOST");
+    private static final String database = ENV.get("DB_NAME");
     private static final String url = "jdbc:mysql://" + host + "/" + database;
-    private static final String user = "root";
-    private static final String password = "loladmit";
+    private static final String user = ENV.get("DB_USER");
+    private static final String password = ENV.get("DB_PASS");
     private static final int timeout = 5;
     private Connection connection =  null;
 

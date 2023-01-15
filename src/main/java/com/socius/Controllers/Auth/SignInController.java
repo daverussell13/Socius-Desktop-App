@@ -32,8 +32,8 @@ public class SignInController implements Initializable {
     };
 
     private final EventHandler<ActionEvent> signInHdl = actionEvent -> {
-        Stage stage = ViewUtils.getEventStage(actionEvent);
-        UserView.setAppScene(stage);
+        ViewUtils.getEventStage(actionEvent).close();
+        UserView.setAppScene(new Stage());
     };
 
     @Override
