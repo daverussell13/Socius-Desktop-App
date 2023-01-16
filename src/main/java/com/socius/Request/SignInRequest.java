@@ -3,11 +3,19 @@ package com.socius.Request;
 import com.socius.Core.Request;
 import com.socius.Utils.DBUtils;
 import com.socius.Utils.StringUtils;
-import com.socius.Utils.ViewUtils;
 
 public class SignInRequest implements Request {
     private final String usernameOrEmail;
+
     private final String password;
+
+    public String getUsernameOrEmail() {
+        return usernameOrEmail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     public SignInRequest(String usernameOrEmail, String password) {
         this.usernameOrEmail = usernameOrEmail;

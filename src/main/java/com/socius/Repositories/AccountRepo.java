@@ -1,9 +1,7 @@
 package com.socius.Repositories;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.socius.Core.Database;
 import com.socius.Core.Repositories;
-import com.socius.Core.Request;
 import com.socius.Models.Account;
 import com.socius.Models.Admin;
 import com.socius.Models.User;
@@ -11,7 +9,6 @@ import com.socius.Request.SignUpRequest;
 import com.socius.Utils.HashUtils;
 import com.socius.Utils.ViewUtils;
 
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AccountRepo extends Repositories {
@@ -135,5 +132,4 @@ public class AccountRepo extends Repositories {
         }
         return null;
     }
-
 }

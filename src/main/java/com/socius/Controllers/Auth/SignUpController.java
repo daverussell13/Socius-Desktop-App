@@ -1,6 +1,5 @@
 package com.socius.Controllers.Auth;
 
-import com.socius.Models.User;
 import com.socius.Request.SignUpRequest;
 import com.socius.Services.AccountService;
 import com.socius.Utils.ViewUtils;
@@ -40,11 +39,9 @@ public class SignUpController implements Initializable {
     };
 
     EventHandler<ActionEvent> signUpHdl = actionEvent -> {
-        if (!agreement_checkbox.isSelected()) {
-            ViewUtils.showErrorAlert("Please read the user agreements");
-            return;
-        }
         try {
+            if (!agreement_checkbox.isSelected())
+                throw new Exception("Please check the agreement box");
             SignUpRequest signUpRequest = new SignUpRequest(
                     username_field.getText(),
                     name_field.getText(),
@@ -64,7 +61,7 @@ public class SignUpController implements Initializable {
         }
     };
 
-    public void clearForm() {
+    private void clearForm() {
         username_field.clear();
         email_field.clear();
         password_field.clear();

@@ -1,5 +1,8 @@
 package com.socius.Controllers.Auth;
 
+import com.socius.Models.Account;
+import com.socius.Request.SignInRequest;
+import com.socius.Services.AccountService;
 import com.socius.Utils.ViewUtils;
 import com.socius.Views.AuthView;
 import com.socius.Views.UserView;
@@ -14,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SignInController implements Initializable {
@@ -25,6 +29,7 @@ public class SignInController implements Initializable {
     private Button signIn_btn;
     @FXML
     private Hyperlink sign_up_hyperlink;
+    private final AccountService accService = new AccountService();
 
     private final EventHandler<ActionEvent> signUpHyperHdl = actionEvent -> {
         Stage stage = ViewUtils.getEventStage(actionEvent);
@@ -32,9 +37,29 @@ public class SignInController implements Initializable {
     };
 
     private final EventHandler<ActionEvent> signInHdl = actionEvent -> {
-        ViewUtils.getEventStage(actionEvent).close();
-        UserView.setAppScene(new Stage());
+        try {
+            SignInRequest request = new SignInRequest(
+                    username_field.getText(),
+                    password_field.getText()
+            ).validate();
+            Account acc = accService.signIn(request);
+            if (acc != null) {
+                ViewUtils.getEventStage(actionEvent).close();
+                UserView.setAppScene(new Stage());
+            }
+        } catch (SQLException e) {
+            ViewUtils.showErrorAlert("DB Error : Failed to login");
+        } catch (Exception e) {
+            ViewUtils.showErrorAlert(e.getMessage());
+        } finally {
+            clearForm();
+        }
     };
+
+    private void clearForm() {
+        username_field.clear();
+        password_field.clear();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
