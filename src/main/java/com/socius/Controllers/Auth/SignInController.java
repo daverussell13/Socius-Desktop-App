@@ -30,7 +30,6 @@ public class SignInController implements Initializable {
     private Button signIn_btn;
     @FXML
     private Hyperlink sign_up_hyperlink;
-    private final AccountService accService = new AccountService();
     private final Session session = Session.getInstance();
 
     private final EventHandler<ActionEvent> signUpHyperHdl = actionEvent -> {
@@ -39,6 +38,7 @@ public class SignInController implements Initializable {
     };
 
     private final EventHandler<ActionEvent> signInHdl = actionEvent -> {
+        AccountService accService = new AccountService();
         try {
             SignInRequest request = new SignInRequest(
                     username_field.getText(),

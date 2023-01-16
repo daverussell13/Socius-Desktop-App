@@ -31,14 +31,13 @@ public class SignUpController implements Initializable {
     @FXML
     private TextField username_field;
 
-    private final AccountService accountService = new AccountService();
-
     EventHandler<ActionEvent> signInHyperHdl = actionEvent -> {
         Stage stage = ViewUtils.getEventStage(actionEvent);
         AuthView.setSignInScene(stage);
     };
 
     EventHandler<ActionEvent> signUpHdl = actionEvent -> {
+        AccountService accountService = new AccountService();
         try {
             if (!agreement_checkbox.isSelected())
                 throw new Exception("Please check the agreement box");

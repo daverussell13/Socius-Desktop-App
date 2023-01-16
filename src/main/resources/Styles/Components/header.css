@@ -20,3 +20,11 @@
     -fx-font-size: 1.8em;
     -fx-fill: #000;
 }
+
+.logout {
+    -fx-padding: 10px 30px;
+    -fx-font-size: 1.5em;
+    -fx-background-color: #DDB892;
+    -fx-background-radius: 2%;
+    -fx-cursor: hand;
+}

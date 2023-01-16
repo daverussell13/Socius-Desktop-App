@@ -5,6 +5,7 @@ import com.socius.Utils.ViewUtils;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class UserView {
@@ -23,6 +24,7 @@ public class UserView {
     public static void setAppScene(Stage stage) {
         stage.setTitle("Socius App");
         stage.setScene(getAppLayout());
+        stage.getIcons().add(new Image(String.valueOf(UserView.class.getResource("/Images/Gopher.png"))));
         stage.setResizable(true);
         stage.setMaximized(true);
         stage.setMinWidth(1300);

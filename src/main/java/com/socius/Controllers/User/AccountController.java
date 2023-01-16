@@ -14,21 +14,21 @@ import java.util.ResourceBundle;
 
 public class AccountController implements Initializable {
     @FXML
-    public Text account_name;
+    private Text account_name;
     @FXML
-    public Text account_email;
+    private Text account_email;
     @FXML
-    public Text account_role;
+    private Text account_role;
     @FXML
-    public TextField input_name;
+    private TextField input_name;
     @FXML
-    public TextField input_username;
+    private TextField input_username;
     @FXML
-    public TextField input_email;
+    private TextField input_email;
     @FXML
-    public TextField input_pass;
+    private TextField input_pass;
     @FXML
-    public Button update_btn;
+    private Button update_btn;
     private final Session session = Session.getInstance();
     private final Account account = session.isAuthenticated() ? session.getLoggedAccount() : null;
 

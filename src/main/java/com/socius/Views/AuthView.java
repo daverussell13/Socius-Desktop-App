@@ -2,6 +2,7 @@ package com.socius.Views;
 
 import com.socius.Utils.ViewUtils;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class AuthView {
@@ -30,12 +31,14 @@ public class AuthView {
         stage.setScene(getSignUpScene());
         stage.setTitle("Sign Up");
         stage.setResizable(false);
+        stage.getIcons().add(new Image(String.valueOf(AuthView.class.getResource("/Images/Gopher.png"))));
         stage.show();
     }
 
     public static void setSignInScene(Stage stage) {
         stage.setScene(getSignInScene());
         stage.setTitle("Sign In");
+        stage.getIcons().add(new Image(String.valueOf(AuthView.class.getResource("/Images/Gopher.png"))));
         stage.setResizable(false);
         stage.show();
     }

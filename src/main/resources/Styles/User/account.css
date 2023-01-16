@@ -16,7 +16,7 @@
 .account_info {
     -fx-min-width: 200px;
     -fx-min-height: 120px;
-    -fx-background-color: linear-gradient(to bottom, rgba(221, 184, 146, 0.1), rgba(221, 184, 146, 0.4));
+    -fx-background-color: linear-gradient(to bottom, rgb(221, 184, 146), rgb(221, 184, 146));
     -fx-background-radius: 25px;
 }
 
@@ -41,8 +41,8 @@
 }
 
 .update_button {
-    -fx-pref-height: 45;
-    -fx-pref-width: 180;
+    -fx-min-height: 45;
+    -fx-min-width: 180;
     -fx-background-color: #DDBB92;
     -fx-background-radius: 24;
     -fx-cursor: hand;

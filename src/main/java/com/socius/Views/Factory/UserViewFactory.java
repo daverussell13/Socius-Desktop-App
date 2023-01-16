@@ -1,7 +1,6 @@
 package com.socius.Views.Factory;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 
 public class UserViewFactory {
@@ -10,11 +9,11 @@ public class UserViewFactory {
 
     public static AnchorPane getHomeView() {
         if (homeView == null) {
-           try {
-               homeView = new FXMLLoader(UserViewFactory.class.getResource("/Fxml/User/home.fxml")).load();
-           } catch (Exception e) {
-               e.printStackTrace();
-           }
+            try {
+                homeView = new FXMLLoader(UserViewFactory.class.getResource("/Fxml/User/home.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return homeView;
     }

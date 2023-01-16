@@ -1,11 +1,18 @@
 package com.socius.Core;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Repositories {
     protected Connection conn;
     protected PreparedStatement stmt;
     protected ResultSet rs;
+
+    protected Repositories() {
+        this.conn = null;
+    }
 
     protected void closeStatement() {
         if (this.stmt != null) {
@@ -27,6 +34,11 @@ public class Repositories {
         }
     }
 
+    public void openConnection() {
+        if (this.conn == null)
+            this.conn = Database.getInstance().getConnection();
+    }
+
     public void closeConnection() {
         if (this.conn != null) {
             try {
@@ -37,7 +49,7 @@ public class Repositories {
         }
     }
 
-    protected void closeAll() {
+    protected void closeStatementResult() {
         this.closeStatement();
         this.closeResultSet();
     }

@@ -1,6 +1,5 @@
 package com.socius.Repositories;
 
-import com.socius.Core.Database;
 import com.socius.Core.Repositories;
 import com.socius.Models.Account;
 import com.socius.Models.Admin;
@@ -11,9 +10,9 @@ import com.socius.Utils.ViewUtils;
 
 import java.sql.SQLException;
 
-public class AccountRepo extends Repositories {
-    public AccountRepo() {
-        this.conn = Database.getInstance().getConnection();
+public class AccountRepository extends Repositories {
+    public AccountRepository() {
+        super();
     }
 
     public boolean isEmailExist(String email) throws SQLException {
@@ -27,7 +26,7 @@ public class AccountRepo extends Repositories {
                 return true;
             }
         } finally {
-            this.closeAll();
+            this.closeStatementResult();
         }
         return false;
     }
@@ -43,7 +42,7 @@ public class AccountRepo extends Repositories {
                 return true;
             }
         } finally {
-            this.closeAll();
+            this.closeStatementResult();
         }
         return false;
     }
@@ -67,7 +66,7 @@ public class AccountRepo extends Repositories {
             stmt.setString(4, hashedPass);
             return stmt.executeUpdate() != 0;
         } finally {
-            this.closeAll();
+            this.closeStatementResult();
         }
     }
 
@@ -113,7 +112,7 @@ public class AccountRepo extends Repositories {
             Account account = getAccount(username, query);
             if (account != null) return account;
         } finally {
-            this.closeAll();
+            this.closeStatementResult();
         }
         return null;
     }
@@ -128,7 +127,7 @@ public class AccountRepo extends Repositories {
             Account account = getAccount(email, query);
             if (account != null) return account;
         } finally {
-            this.closeAll();
+            this.closeStatementResult();
         }
         return null;
     }

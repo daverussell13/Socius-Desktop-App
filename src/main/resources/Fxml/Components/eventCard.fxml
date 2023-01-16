@@ -4,37 +4,35 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0"
-            prefWidth="350.0" stylesheets="@../../Styles/Components/eventCard.css" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Styles.Components.EventCard">
-    <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="350.0" stylesheets="@../../Styles/Components/eventCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <ImageView fitHeight="180.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
             <viewport>
-                <Rectangle2D/>
+                <Rectangle2D />
             </viewport>
         </ImageView>
         <VBox maxHeight="1.7976931348623157E308" styleClass="event_detail_container" VBox.vgrow="ALWAYS">
             <padding>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <VBox spacing="5.0" VBox.vgrow="ALWAYS">
                 <HBox prefHeight="100.0" prefWidth="200.0">
-                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name" text="Name"/>
-                    <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS"/>
-                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date"
-                          text="12 Jan 2022, 12 : 20 AM"/>
+                    <Text fx:id="event_name" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name" text="Name" />
+                    <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                    <Text fx:id="event_datetime" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date" text="12 Jan 2022, 12 : 20 AM" />
                 </HBox>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="organizer" text="Organizer"/>
-                <Label alignment="TOP_LEFT" styleClass="description"
-                       text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum in nisi ac pulvinar. Donec et mattis velit, eu accumsan arcu. In convallis leo in mi maximus, in commodo nunc aliquam. Ut vitae bibendum risus. Integer in nisi commodo mauris tincidunt commodo. Suspendisse a ex eu tortor bibendum ullamcorper nec eu lectus. Nam viverra quam felis, eu ornare purus eleifend a. Pellentesque nulla turpis, dignissim sit amet elementum in, consequat eget enim. In vitae ultricies mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pulvinar accumsan augue vitae vulputate. Aliquam eget ex cursus, sagittis nisl quis, lacinia magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum in nisi ac pulvinar. Donec et mattis velit, eu accumsan arcu. In convallis leo in mi maximus, in commodo nunc aliquam. Ut vitae bibendum risus. Integer in nisi commodo mauris tincidunt commodo. Suspendisse a ex eu tortor bibendum ullamcorper nec eu lectus. Nam viverra quam felis, eu ornare purus eleifend a. Pellentesque nulla turpis, dignissim sit amet elementum in, consequat eget enim. In vitae ultricies mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pulvinar accumsan augue vitae vulputate. Aliquam eget ex cursus, sagittis nisl quis, lacinia magna. "
-                       wrapText="true"/>
+                <Text fx:id="event_organizer" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="organizer" text="Organizer" />
+                <Label fx:id="event_description" alignment="TOP_LEFT" styleClass="description" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum in nisi ac pulvinar. Donec et mattis velit, eu accumsan arcu. In convallis leo in mi maximus, in commodo nunc aliquam. Ut vitae bibendum risus. Integer in nisi commodo mauris tincidunt commodo. Suspendisse a ex eu tortor bibendum ullamcorper nec eu lectus. Nam viverra quam felis, eu ornare purus eleifend a. Pellentesque nulla turpis, dignissim sit amet elementum in, consequat eget enim. In vitae ultricies mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pulvinar accumsan augue vitae vulputate. Aliquam eget ex cursus, sagittis nisl quis, lacinia magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum in nisi ac pulvinar. Donec et mattis velit, eu accumsan arcu. In convallis leo in mi maximus, in commodo nunc aliquam. Ut vitae bibendum risus. Integer in nisi commodo mauris tincidunt commodo. Suspendisse a ex eu tortor bibendum ullamcorper nec eu lectus. Nam viverra quam felis, eu ornare purus eleifend a. Pellentesque nulla turpis, dignissim sit amet elementum in, consequat eget enim. In vitae ultricies mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pulvinar accumsan augue vitae vulputate. Aliquam eget ex cursus, sagittis nisl quis, lacinia magna. " wrapText="true" />
             </VBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0" styleClass="joined_user">
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="12"/>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User joined"/>
+                <Text fx:id="event_joined_user" strokeType="OUTSIDE" strokeWidth="0.0" text="12" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User joined" />
             </HBox>
         </VBox>
     </VBox>
