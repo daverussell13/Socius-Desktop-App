@@ -27,12 +27,14 @@ public class ViewUtils {
     }
 
     public static void showErrorAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR, message);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText(message);
         alert.show();
     }
 
     public static void showSuccessAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
+        alert.setContentText(message);
         alert.show();
     }
 }

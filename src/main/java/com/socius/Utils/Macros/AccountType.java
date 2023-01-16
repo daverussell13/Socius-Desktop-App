@@ -1,4 +1,4 @@
-package com.socius.Utils;
+package com.socius.Utils.Macros;
 
 public enum AccountType {
     USER,

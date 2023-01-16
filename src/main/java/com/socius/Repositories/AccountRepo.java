@@ -1,10 +1,17 @@
 package com.socius.Repositories;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.socius.Core.Database;
 import com.socius.Core.Repositories;
+import com.socius.Core.Request;
 import com.socius.Models.Account;
+import com.socius.Models.Admin;
+import com.socius.Models.User;
+import com.socius.Request.SignUpRequest;
+import com.socius.Utils.HashUtils;
 import com.socius.Utils.ViewUtils;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AccountRepo extends Repositories {
@@ -44,26 +51,89 @@ public class AccountRepo extends Repositories {
         return false;
     }
 
-    public boolean isExist(Account account) throws SQLException {
-        return isEmailExist(account.emailProperty().get()) || isUsernameExist(account.usernameProperty().get());
+    public boolean isExist(String email, String username) throws SQLException {
+        return isEmailExist(email) || isUsernameExist(username);
     }
 
-    public int insertAccount(Account account) throws SQLException {
+    public boolean insertAccount(SignUpRequest request) throws SQLException {
         String query = """
                 INSERT INTO
-                users (username, name, email, password, is_admin)
-                VALUES (?, ? ,?, ?, ?);
+                users (username, name, email, password)
+                VALUES (?, ? ,?, ?);
                 """;
+        String hashedPass = HashUtils.hashString(request.getPassword());
         try {
             stmt = conn.prepareStatement(query);
-            stmt.setString(1, account.usernameProperty().get());
-            stmt.setString(2, account.nameProperty().get());
-            stmt.setString(3, account.emailProperty().get());
-            stmt.setString(4, account.passwordProperty().get());
-            stmt.setInt(5, account.isAdminProperty().get() ? 1 : 0);
-            return stmt.executeUpdate();
+            stmt.setString(1, request.getUsername());
+            stmt.setString(2, request.getName());
+            stmt.setString(3, request.getEmail());
+            stmt.setString(4, hashedPass);
+            return stmt.executeUpdate() != 0;
         } finally {
             this.closeAll();
         }
     }
+
+    private Account getAccount(String param, String query) throws SQLException {
+        stmt = conn.prepareStatement(query);
+        stmt.setString(1, param);
+        rs = stmt.executeQuery();
+        if (rs.next()) {
+            Account account;
+            if (rs.getInt("is_admin") == 1) {
+                account = new Admin(
+                        rs.getInt("user_id"),
+                        rs.getString("username"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getTimestamp("created_at"),
+                        rs.getTimestamp("deleted_at")
+                );
+            } else {
+                account = new User(
+                        rs.getInt("user_id"),
+                        rs.getString("username"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getTimestamp("created_at"),
+                        rs.getTimestamp("deleted_at")
+                );
+            }
+            return account;
+        }
+        return null;
+    }
+
+    public Account getAccountByUsername(String username) throws SQLException {
+        String query = """
+                SELECT *
+                FROM users
+                WHERE username = ?
+                """;
+        try {
+            Account account = getAccount(username, query);
+            if (account != null) return account;
+        } finally {
+            this.closeAll();
+        }
+        return null;
+    }
+
+    public Account getAccountByEmail(String email) throws SQLException {
+        String query = """
+                SELECT *
+                FROM users
+                WHERE email = ?
+                """;
+        try {
+            Account account = getAccount(email, query);
+            if (account != null) return account;
+        } finally {
+            this.closeAll();
+        }
+        return null;
+    }
+
 }

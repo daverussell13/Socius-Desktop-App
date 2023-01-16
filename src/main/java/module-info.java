@@ -6,6 +6,7 @@ module com.socius {
     requires io.github.cdimascio.dotenv.java;
     requires com.zaxxer.hikari;
     requires org.slf4j;
+    requires bcrypt;
 
     opens com.socius to javafx.fxml;
     exports com.socius;

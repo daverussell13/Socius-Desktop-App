@@ -1,6 +1,6 @@
 package com.socius.Models;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class User extends Account {
     public User(
@@ -9,8 +9,8 @@ public class User extends Account {
             String name,
             String email,
             String password,
-            Date createdAt,
-            Date deletedAt
+            Timestamp createdAt,
+            Timestamp deletedAt
     ) {
         super(userId == null ? -1 : userId, username, name, email, password, false, createdAt, deletedAt);
     }

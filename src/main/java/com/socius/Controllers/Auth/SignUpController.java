@@ -1,6 +1,7 @@
 package com.socius.Controllers.Auth;
 
 import com.socius.Models.User;
+import com.socius.Request.SignUpRequest;
 import com.socius.Services.AccountService;
 import com.socius.Utils.ViewUtils;
 import com.socius.Views.AuthView;
@@ -12,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
@@ -42,22 +44,21 @@ public class SignUpController implements Initializable {
             ViewUtils.showErrorAlert("Please read the user agreements");
             return;
         }
-        User user = new User(
-                null,
-                username_field.getText(),
-                name_field.getText(),
-                email_field.getText(),
-                password_field.getText(),
-                null,
-                null);
         try {
-            if (accountService.register(user)) {
+            SignUpRequest signUpRequest = new SignUpRequest(
+                    username_field.getText(),
+                    name_field.getText(),
+                    email_field.getText(),
+                    password_field.getText()
+            ).validate();
+            if (accountService.signUp(signUpRequest)) {
                 ViewUtils.showSuccessAlert("User succesfully registered");
                 ViewUtils.getEventStage(actionEvent).setScene(AuthView.getSignInScene());
             }
+        } catch (SQLException e) {
+            ViewUtils.showErrorAlert("DB Error : Failed to register");
         } catch (Exception e) {
-            ViewUtils.showErrorAlert("Failed to register");
-            e.printStackTrace();
+            ViewUtils.showErrorAlert(e.getMessage());
         } finally {
             clearForm();
         }

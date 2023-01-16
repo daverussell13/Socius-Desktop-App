@@ -1,6 +1,6 @@
 package com.socius.Controllers.User;
 
-import com.socius.Utils.UserPageState;
+import com.socius.Utils.Macros.UserPageState;
 import com.socius.Views.Factory.UserViewFactory;
 import com.socius.Views.UserView;
 import javafx.beans.value.ChangeListener;

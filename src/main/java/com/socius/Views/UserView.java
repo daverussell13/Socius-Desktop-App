@@ -1,6 +1,6 @@
 package com.socius.Views;
 
-import com.socius.Utils.UserPageState;
+import com.socius.Utils.Macros.UserPageState;
 import com.socius.Utils.ViewUtils;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
