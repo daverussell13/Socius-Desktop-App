@@ -30,7 +30,7 @@
                             <Insets bottom="10.0" />
                         </VBox.margin>
                     </Text>
-                    <HBox styleClass="name_username_input_field_container">
+                    <HBox alignment="CENTER" styleClass="name_username_input_field_container">
                         <VBox styleClass="input_container" HBox.hgrow="ALWAYS">
                             <Label text="Name" />
                             <TextField fx:id="name_field" styleClass="register_input_field" />
@@ -46,7 +46,7 @@
                     </VBox>
                     <VBox styleClass="input_container">
                         <Label text="Password" />
-                        <PasswordField fx:id="password_field" styleClass="register_input_field" />
+                        <PasswordField fx:id="password_field" style="-fx-font-size: .8em;" styleClass="register_input_field" />
                     </VBox>
                     <CheckBox fx:id="agreement_checkbox" mnemonicParsing="false" text="Creating an account means you’re okay with our Terms of Service, Privacy Policy, and our default Notification Settings." wrapText="true">
                         <VBox.margin>

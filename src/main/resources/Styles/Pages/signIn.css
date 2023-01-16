@@ -1,6 +1,9 @@
 @font-face {
-    src: url('../../Fonts/Extatica-SemiBold.otf'),
-         url('../../Fonts/Extatica-Regular.otf');
+    src: url('../../Fonts/Extatica-SemiBold.otf');
+}
+
+@font-face {
+    src: url('../../Fonts/Extatica-Regular.otf');
 }
 
 /* Container */
@@ -50,11 +53,16 @@
     -fx-spacing: 6;
 }
 
+.input_container .label {
+    -fx-font-size: 1.15em;
+}
+
 .login_input_field {
     -fx-pref-height: 45;
     -fx-padding: 0 15;
     -fx-background-color: #DDBB92;
     -fx-background-radius: 15;
+    -fx-font-size: 1.3em;
 }
 
 /* Sign Up Hyperlink */

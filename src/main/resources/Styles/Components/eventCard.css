@@ -1,0 +1,41 @@
+@font-face {
+    src: url('../../Fonts/Extatica-Bold.otf');
+}
+
+@font-face {
+    src: url('../../Fonts/Extatica-Regular.otf');
+}
+
+@font-face {
+    src: url('../../Fonts/Extatica-Bold.otf');
+}
+
+.event_detail_container {
+    -fx-background-color: #DDB892;
+    -fx-font-family: Extatica-SemiBold;
+}
+
+.name {
+    -fx-font-family: Extatica-Bold;
+    -fx-font-size: 1.6em;
+}
+
+.organizer {
+    -fx-font-size: 1.2em;
+}
+
+.description .text {
+    -fx-font-size: 1.2em;
+    -fx-text-fill: #000;
+}
+
+.joined_user {
+    -fx-font-size: 1.2em;
+}
+
+.date {
+    -fx-font-size: 1.2em;
+}
+
+
+

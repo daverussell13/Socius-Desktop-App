@@ -2,6 +2,10 @@
     src: url('../../Fonts/Extatica-SemiBold.otf');
 }
 
+@font-face {
+    src: url('../../Fonts/Extatica-Bold.otf');
+}
+
 .hero_section {
     -fx-background-image: url("../../Images/hero.png");
     -fx-background-size: cover;
@@ -31,6 +35,12 @@
 .button .text {
     -fx-font-size: 1.7em;
     -fx-fill: #FFF;
+}
+
+.social_title {
+    -fx-font-family: Extatica-Bold;
+    -fx-font-size: 6em;
+    -fx-fill: #000;
 }
 
 

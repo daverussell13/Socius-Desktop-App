@@ -34,7 +34,7 @@
                     </VBox>
                     <VBox styleClass="input_container">
                         <Label text="Password" />
-                        <PasswordField fx:id="password_field" styleClass="login_input_field" />
+                        <PasswordField fx:id="password_field" style="-fx-font-size: .9em;" styleClass="login_input_field" />
                     </VBox>
                     <HBox alignment="CENTER_LEFT">
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have account?" />
