@@ -12,6 +12,6 @@ public class Admin extends Account {
             Timestamp createdAt,
             Timestamp deletedAt
     ) {
-        super(userId, username, name, email, password, true, createdAt, deletedAt);
+        super(userId, username, name, email, password, createdAt, deletedAt);
     }
 }

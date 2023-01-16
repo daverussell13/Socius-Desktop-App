@@ -24,7 +24,7 @@
                     </padding>
                     <HBox fx:id="userProfile" alignment="CENTER" spacing="10.0" styleClass="username_container">
                         <FontAwesomeIconView glyphName="USER" size="20" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="username" text="Username" />
+                        <Text fx:id="username_text" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="username" text="Username" />
                     </HBox>
                 </HBox>
             </AnchorPane>

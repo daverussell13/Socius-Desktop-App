@@ -12,6 +12,6 @@ public class User extends Account {
             Timestamp createdAt,
             Timestamp deletedAt
     ) {
-        super(userId == null ? -1 : userId, username, name, email, password, false, createdAt, deletedAt);
+        super(userId, username, name, email, password, createdAt, deletedAt);
     }
 }

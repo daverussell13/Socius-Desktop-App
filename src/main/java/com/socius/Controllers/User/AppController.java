@@ -1,5 +1,6 @@
 package com.socius.Controllers.User;
 
+import com.socius.Models.Session;
 import com.socius.Utils.Macros.UserPageState;
 import com.socius.Views.Factory.UserViewFactory;
 import com.socius.Views.UserView;
@@ -19,9 +20,12 @@ public class AppController implements Initializable {
     @FXML
     public Text logo;
     @FXML
+    public Text username_text;
+    @FXML
     private HBox userProfile;
     @FXML
     private BorderPane appContainer;
+    private final Session session = Session.getInstance();
 
     private final ChangeListener<UserPageState> onPageStateChange = (observableValue, oldVal, newVal) -> {
         switch (newVal) {
@@ -41,6 +45,7 @@ public class AppController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         UserView.getPageState().addListener(onPageStateChange);
+        username_text.setText(session.getLoggedAccount().nameProperty().get());
         userProfile.setOnMouseClicked(onProfileClicked);
         logo.setOnMouseClicked(onLogoClicked);
     }

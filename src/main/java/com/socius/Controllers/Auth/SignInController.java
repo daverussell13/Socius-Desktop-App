@@ -1,6 +1,7 @@
 package com.socius.Controllers.Auth;
 
 import com.socius.Models.Account;
+import com.socius.Models.Session;
 import com.socius.Request.SignInRequest;
 import com.socius.Services.AccountService;
 import com.socius.Utils.ViewUtils;
@@ -30,6 +31,7 @@ public class SignInController implements Initializable {
     @FXML
     private Hyperlink sign_up_hyperlink;
     private final AccountService accService = new AccountService();
+    private final Session session = Session.getInstance();
 
     private final EventHandler<ActionEvent> signUpHyperHdl = actionEvent -> {
         Stage stage = ViewUtils.getEventStage(actionEvent);
@@ -44,6 +46,7 @@ public class SignInController implements Initializable {
             ).validate();
             Account acc = accService.signIn(request);
             if (acc != null) {
+                session.setLoggedAccount(acc);
                 ViewUtils.getEventStage(actionEvent).close();
                 UserView.setAppScene(new Stage());
             }
