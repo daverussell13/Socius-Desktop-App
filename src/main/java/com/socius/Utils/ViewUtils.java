@@ -4,8 +4,10 @@ import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class ViewUtils {
@@ -21,6 +23,16 @@ public class ViewUtils {
     }
 
     public static Stage getEventStage(Event event) {
-        return (Stage) ((Node)event.getSource()).getScene().getWindow();
+        return (Stage) ((Node) event.getSource()).getScene().getWindow();
+    }
+
+    public static void showErrorAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR, message);
+        alert.show();
+    }
+
+    public static void showSuccessAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
+        alert.show();
     }
 }

@@ -1,8 +1,9 @@
 package com.socius.Core;
 
+import com.zaxxer.hikari.HikariDataSource;
 import io.github.cdimascio.dotenv.Dotenv;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
@@ -13,42 +14,39 @@ public class Database {
     private static final String user = ENV.get("DB_USER");
     private static final String password = ENV.get("DB_PASS");
     private static final int timeout = 5;
-    private Connection connection =  null;
+    private HikariDataSource dataSource;
 
-    private Database() {}
+    private Database() {
+    }
 
-    private static class InstanceHolder { private static final Database instance = new Database(); }
+    private static class InstanceHolder {
+        private static final Database instance = new Database();
+    }
 
     public static Database getInstance() {
         return InstanceHolder.instance;
     }
 
     public Connection getConnection() {
+        Connection conn;
         try {
-            if (connection.isValid(timeout)) return connection;
-            return null;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void openConnection() {
-        System.out.println("Connecting to database...");
-        try {
-            connection = DriverManager.getConnection(url, user, password);
-            System.out.println("Connection valid: " + connection.isValid(timeout));
+            conn = dataSource.getConnection();
+            if (conn.isValid(timeout)) return conn;
+            throw new SQLException();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    public void closeConnection() {
-        System.out.println("Closing database connection...");
-        try {
-            connection.close();
-            System.out.println("Connection valid: " + connection.isValid(timeout));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public void initDatabaseConnectionPool() {
+        dataSource = new HikariDataSource();
+        dataSource.setJdbcUrl(url);
+        dataSource.setUsername(user);
+        dataSource.setPassword(password);
+    }
+
+    public void closeDatabaseConnectionPool() {
+        dataSource.close();
     }
 }

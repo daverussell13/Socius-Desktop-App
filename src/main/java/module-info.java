@@ -4,6 +4,8 @@ module com.socius {
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
     requires io.github.cdimascio.dotenv.java;
+    requires com.zaxxer.hikari;
+    requires org.slf4j;
 
     opens com.socius to javafx.fxml;
     exports com.socius;
