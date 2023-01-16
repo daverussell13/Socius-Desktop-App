@@ -1,0 +1,55 @@
+@font-face {
+    src: url('../../Fonts/Extatica-Regular.otf'),
+    url('../../Fonts/Extatica-SemiBold.otf');
+}
+
+.account_section {
+    -fx-font-family: Extatica-Regular;
+    -fx-background-image: url("../../Images/hero.png");
+    -fx-background-size: cover;
+}
+
+.filter {
+    -fx-background-color: linear-gradient(to right, rgba(156, 102, 68, 0.7), rgba(237, 212, 215, 0));
+}
+
+.account_info {
+    -fx-min-width: 200px;
+    -fx-min-height: 120px;
+    -fx-background-color: linear-gradient(to bottom, rgba(221, 184, 146, 0.1), rgba(221, 184, 146, 0.4));
+    -fx-background-radius: 25px;
+}
+
+.account_info_text {
+    -fx-font-family: Extatica-SemiBold;
+    -fx-font-size: 1.5em;
+    -fx-fill: #FFF;
+}
+
+.input_container {
+    -fx-background-color: #DDB892;
+    -fx-min-width: 500px;
+    -fx-min-height: 60px;
+    -fx-font-size: 1.5em;
+    -fx-background-radius: 30px;
+}
+
+.input_container .text-field {
+    -fx-min-width: 300px;
+    -fx-min-height: 30px;
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+.update_button {
+    -fx-pref-height: 45;
+    -fx-pref-width: 180;
+    -fx-background-color: #DDBB92;
+    -fx-background-radius: 24;
+    -fx-cursor: hand;
+}
+
+.update_button .text {
+    -fx-font-family: Extatica-SemiBold;
+    -fx-fill: #FFF;
+    -fx-font-size: 1.5em;
+}

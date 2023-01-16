@@ -4,8 +4,8 @@ import com.socius.Utils.Macros.UserPageState;
 import com.socius.Utils.ViewUtils;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class UserView {
     private static final ObjectProperty<UserPageState> pageState = new SimpleObjectProperty<>();
@@ -26,7 +26,7 @@ public class UserView {
         stage.setResizable(true);
         stage.setMaximized(true);
         stage.setMinWidth(1300);
-        stage.setMinHeight(600);
+        stage.setMinHeight(700);
         stage.show();
     }
 

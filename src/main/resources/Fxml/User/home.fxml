@@ -2,25 +2,33 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-
-<AnchorPane minWidth="-Infinity" prefHeight="1270.0" prefWidth="1270.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <VBox layoutX="186.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <HBox prefHeight="400.0">
-         <padding>
-            <Insets left="50.0" />
-         </padding>
-         <VBox alignment="CENTER_LEFT">
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Socius" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in blandit nunc, id cursus dui. Aenean eu venenatis ante. Maecenas nec pulvinar est. Vivamus tincidunt, velit et tincidunt interdum, tortor dui efficitur ante, eu cursus nisl diam eget nunc." wrappingWidth="400.0" />
-            <HBox>
-               <Button mnemonicParsing="false" text="Add Events" />
-               <Button mnemonicParsing="false" text="See Events" />
+<AnchorPane minWidth="-Infinity" prefHeight="1270.0" prefWidth="1270.0" stylesheets="@../../Styles/User/home.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox layoutX="186.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="hero_section">
+            <HBox minHeight="600.0" prefHeight="570.0" prefWidth="1270.0" styleClass="filter"
+                  AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <padding>
+                    <Insets left="70.0" right="70.0"/>
+                </padding>
+                <VBox alignment="CENTER_LEFT" spacing="25.0">
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Socius"/>
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="subtitle"
+                          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in blandit nunc, id cursus dui. Aenean eu venenatis ante. Maecenas nec pulvinar est. Vivamus tincidunt, velit et tincidunt interdum, tortor dui efficitur ante, eu cursus nisl diam eget nunc."
+                          wrappingWidth="478.0"/>
+                    <HBox spacing="40.0">
+                        <Button minHeight="70.0" minWidth="210.0" mnemonicParsing="false" text="Add Events"/>
+                        <Button minHeight="70.0" minWidth="210.0" mnemonicParsing="false" text="See Events"/>
+                    </HBox>
+                </VBox>
+                <opaqueInsets>
+                    <Insets/>
+                </opaqueInsets>
             </HBox>
-         </VBox>
-      </HBox>
-   </VBox>
+        </AnchorPane>
+    </VBox>
 </AnchorPane>

@@ -8,8 +8,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane fitToWidth="true" hbarPolicy="NEVER" stylesheets="@../../Styles/User/appLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socius.Controllers.User.AppController">
-    <BorderPane fx:id="appContainer" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="1270.0">
+<ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" minWidth="680.0" stylesheets="@../../Styles/User/appLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socius.Controllers.User.AppController">
+    <BorderPane fx:id="appContainer" minHeight="650.0" minWidth="1270.0">
         <top>
             <AnchorPane minWidth="-Infinity" prefHeight="60.0" prefWidth="1270.0" styleClass="header" stylesheets="@../../Styles/Components/header.css">
                 <HBox alignment="CENTER_LEFT" layoutX="-18.0" layoutY="-26.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">

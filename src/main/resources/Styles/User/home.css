@@ -1,0 +1,36 @@
+@font-face {
+    src: url('../../Fonts/Extatica-SemiBold.otf');
+}
+
+.hero_section {
+    -fx-background-image: url("../../Images/hero.png");
+    -fx-background-size: cover;
+    -fx-font-family: Extatica-SemiBold;
+}
+
+.filter {
+    -fx-background-color: linear-gradient(to right, rgba(156, 102, 68, 0.7), rgba(237, 212, 215, 0));
+}
+
+.title {
+    -fx-font-size: 6.5em;
+    -fx-fill: #FFF;
+}
+
+.subtitle {
+    -fx-font-size: 1.7em;
+    -fx-fill: #FFF;
+}
+
+.button {
+    -fx-background-color: #DDB892;
+    -fx-background-radius: 50px;
+    -fx-cursor: hand;
+}
+
+.button .text {
+    -fx-font-size: 1.7em;
+    -fx-fill: #FFF;
+}
+
+

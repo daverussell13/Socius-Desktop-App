@@ -8,6 +8,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -22,6 +23,8 @@ public class AppController implements Initializable {
     @FXML
     public Text username_text;
     @FXML
+    public ScrollPane scrollPane;
+    @FXML
     private HBox userProfile;
     @FXML
     private BorderPane appContainer;
@@ -34,6 +37,10 @@ public class AppController implements Initializable {
         }
     };
 
+    private final ChangeListener<UserPageState> scrollPaneBehaviour = ((observableValue, oldVal, newVal) -> {
+        scrollPane.setFitToHeight(newVal == UserPageState.PROFILE);
+    });
+
     private final EventHandler<MouseEvent> onProfileClicked = mouseEvent -> {
         UserView.setPageState(UserPageState.PROFILE);
     };
@@ -45,8 +52,11 @@ public class AppController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         UserView.getPageState().addListener(onPageStateChange);
+        UserView.getPageState().addListener(scrollPaneBehaviour);
+
         username_text.setText(session.getLoggedAccount().nameProperty().get());
         userProfile.setOnMouseClicked(onProfileClicked);
+
         logo.setOnMouseClicked(onLogoClicked);
     }
 }

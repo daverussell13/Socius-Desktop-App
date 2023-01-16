@@ -1,31 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
-
-
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1270.0"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
-   <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-         AnchorPane.topAnchor="0.0">
-      <HBox alignment="CENTER">
-         <VBox prefHeight="200.0" prefWidth="100.0">
-            <FontAwesomeIconView/>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama"/>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email"/>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="No. Hp"/>
-         </VBox>
-         <VBox prefHeight="200.0" prefWidth="100.0">
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama"/>
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":"/>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane minHeight="560.0" minWidth="1270.0" styleClass="account_section"
+            stylesheets="@../../Styles/User/account.css" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.socius.Controllers.User.AccountController">
+    <AnchorPane styleClass="filter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER" spacing="30.0">
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                    <FontAwesomeIconView glyphName="USER" size="200"/>
+                    <VBox alignment="CENTER" prefWidth="100.0" spacing="8.0" styleClass="account_info">
+                        <Text fx:id="account_name" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="account_info_text"
+                              text="Nama"/>
+                        <Text fx:id="account_email" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="account_info_text" text="email"/>
+                        <Text fx:id="account_role" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="account_info_text"
+                              text="role"/>
+                    </VBox>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="18.0">
+                    <HBox alignment="CENTER" spacing="30.0" styleClass="input_container">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama"/>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":"/>
+                        <TextField fx:id="input_name"/>
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="30.0" styleClass="input_container">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username"/>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":"/>
+                        <TextField fx:id="input_username"/>
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="30.0" styleClass="input_container">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email"/>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":"/>
+                        <TextField fx:id="input_email"/>
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="30.0" styleClass="input_container">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password"/>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":"/>
+                        <TextField fx:id="input_pass"/>
+                    </HBox>
+                    <Button fx:id="update_btn" mnemonicParsing="false" styleClass="update_button" text="Update"/>
+                </VBox>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0"/>
-            <HBox prefHeight="100.0" prefWidth="200.0"/>
-         </VBox>
-      </HBox>
-   </VBox>
+        </VBox>
+    </AnchorPane>
 </AnchorPane>
