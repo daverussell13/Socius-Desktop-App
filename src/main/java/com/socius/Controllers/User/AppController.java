@@ -1,6 +1,5 @@
 package com.socius.Controllers.User;
 
-import com.socius.Models.Event;
 import com.socius.Models.Session;
 import com.socius.Utils.Macros.UserPageState;
 import com.socius.Utils.ViewUtils;
@@ -13,7 +12,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -37,9 +35,6 @@ public class AppController implements Initializable {
     private HBox userProfile;
     @FXML
     private BorderPane appContainer;
-    @FXML
-    private ListView<Event> eventCardList;
-
     private final Session session = Session.getInstance();
 
     private final ChangeListener<UserPageState> onPageStateChange = (observableValue, oldVal, newVal) -> {
@@ -66,9 +61,6 @@ public class AppController implements Initializable {
         AuthView.setSignInScene(new Stage());
     };
 
-    private final void getEventCards() {
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         UserView.getPageState().addListener(onPageStateChange);
@@ -79,7 +71,5 @@ public class AppController implements Initializable {
 
         logo.setOnMouseClicked(onLogoClicked);
         logout.setOnAction(logoutHdl);
-
-        getEventCards();
     }
 }

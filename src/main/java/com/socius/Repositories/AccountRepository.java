@@ -8,6 +8,7 @@ import com.socius.Request.SignUpRequest;
 import com.socius.Utils.HashUtils;
 import com.socius.Utils.ViewUtils;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class AccountRepository extends Repositories {
@@ -16,8 +17,8 @@ public class AccountRepository extends Repositories {
     }
 
     public boolean isEmailExist(String email) throws SQLException {
-        String query = "SELECT * FROM users WHERE email = ?;";
-        try {
+        try (Connection conn = this.getConnection()) {
+            String query = "SELECT * FROM users WHERE email = ?;";
             stmt = conn.prepareStatement(query);
             stmt.setString(1, email);
             rs = stmt.executeQuery();
@@ -26,14 +27,14 @@ public class AccountRepository extends Repositories {
                 return true;
             }
         } finally {
-            this.closeStatementResult();
+            this.closeAll();
         }
         return false;
     }
 
     public boolean isUsernameExist(String username) throws SQLException {
-        String query = "SELECT * FROM users WHERE username = ?;";
-        try {
+        try (Connection conn = this.getConnection()) {
+            String query = "SELECT * FROM users WHERE username = ?;";
             stmt = conn.prepareStatement(query);
             stmt.setString(1, username);
             rs = stmt.executeQuery();
@@ -42,7 +43,7 @@ public class AccountRepository extends Repositories {
                 return true;
             }
         } finally {
-            this.closeStatementResult();
+            this.closeAll();
         }
         return false;
     }
@@ -52,13 +53,13 @@ public class AccountRepository extends Repositories {
     }
 
     public boolean insertAccount(SignUpRequest request) throws SQLException {
-        String query = """
-                INSERT INTO
-                users (username, name, email, password)
-                VALUES (?, ? ,?, ?);
-                """;
-        String hashedPass = HashUtils.hashString(request.getPassword());
-        try {
+        try (Connection conn = this.getConnection()) {
+            String query = """
+                    INSERT INTO
+                    users (username, name, email, password)
+                    VALUES (?, ? ,?, ?);
+                    """;
+            String hashedPass = HashUtils.hashString(request.getPassword());
             stmt = conn.prepareStatement(query);
             stmt.setString(1, request.getUsername());
             stmt.setString(2, request.getName());
@@ -66,11 +67,11 @@ public class AccountRepository extends Repositories {
             stmt.setString(4, hashedPass);
             return stmt.executeUpdate() != 0;
         } finally {
-            this.closeStatementResult();
+            this.closeAll();
         }
     }
 
-    private Account getAccount(String param, String query) throws SQLException {
+    private Account getAccount(String param, String query, Connection conn) throws SQLException {
         stmt = conn.prepareStatement(query);
         stmt.setString(1, param);
         rs = stmt.executeQuery();
@@ -103,31 +104,31 @@ public class AccountRepository extends Repositories {
     }
 
     public Account getAccountByUsername(String username) throws SQLException {
-        String query = """
-                SELECT *
-                FROM users
-                WHERE username = ?
-                """;
-        try {
-            Account account = getAccount(username, query);
+        try (Connection conn = this.getConnection()) {
+            String query = """
+                    SELECT *
+                    FROM users
+                    WHERE username = ?
+                    """;
+            Account account = getAccount(username, query, conn);
             if (account != null) return account;
         } finally {
-            this.closeStatementResult();
+            this.closeAll();
         }
         return null;
     }
 
     public Account getAccountByEmail(String email) throws SQLException {
-        String query = """
-                SELECT *
-                FROM users
-                WHERE email = ?
-                """;
-        try {
-            Account account = getAccount(email, query);
+        try (Connection conn = this.getConnection()) {
+            String query = """
+                    SELECT *
+                    FROM users
+                    WHERE email = ?
+                    """;
+            Account account = getAccount(email, query, conn);
             if (account != null) return account;
         } finally {
-            this.closeStatementResult();
+            this.closeAll();
         }
         return null;
     }

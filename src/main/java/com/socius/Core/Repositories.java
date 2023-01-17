@@ -6,12 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Repositories {
-    protected Connection conn;
     protected PreparedStatement stmt;
     protected ResultSet rs;
 
     protected Repositories() {
-        this.conn = null;
+        this.stmt = null;
+        this.rs = null;
     }
 
     protected void closeStatement() {
@@ -34,23 +34,12 @@ public class Repositories {
         }
     }
 
-    public void openConnection() {
-        if (this.conn == null)
-            this.conn = Database.getInstance().getConnection();
+    protected void closeAll() {
+        closeResultSet();
+        closeStatement();
     }
 
-    public void closeConnection() {
-        if (this.conn != null) {
-            try {
-                this.conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    protected void closeStatementResult() {
-        this.closeStatement();
-        this.closeResultSet();
+    protected Connection getConnection() {
+        return Database.getInstance().getConnection();
     }
 }

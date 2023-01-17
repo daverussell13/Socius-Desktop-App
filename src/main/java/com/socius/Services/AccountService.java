@@ -16,21 +16,16 @@ public class AccountService {
     }
 
     public boolean signUp(SignUpRequest request) throws SQLException {
-        accRepo.openConnection();
-        if (accRepo.isExist(request.getEmail(), request.getUsername()) ||
-            !accRepo.insertAccount(request)) return false;
-        accRepo.closeConnection();
-        return true;
+        return !accRepo.isExist(request.getEmail(), request.getUsername()) &&
+               accRepo.insertAccount(request);
     }
 
     public Account signIn(SignInRequest request) throws Exception {
-        accRepo.openConnection();
         Account acc = accRepo.getAccountByEmail(request.getUsernameOrEmail());
         if (acc == null) acc = accRepo.getAccountByUsername(request.getUsernameOrEmail());
         if (acc == null) throw new Exception("Wrong user credentials");
         if (!HashUtils.verifyHash(request.getPassword(), acc.passwordProperty().get()))
             throw new Exception("Wrong user credentials");
-        accRepo.closeConnection();
         return acc;
     }
 }
